@@ -1,0 +1,81 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Questrial", sans-serif;
+}
+
+:root {
+  --fill-line: rgb(57, 57, 204);
+  --empty-line: rgb(140, 140, 160);
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.circle__container {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  width: 20rem;
+  margin-bottom: 2rem;
+}
+
+.circle {
+  font-size: 1.5rem;
+  text-align: center;
+  width: 3rem;
+  border-radius: 50%;
+  background-color: #fff;
+  border: 3px solid var(--empty-line);
+  padding: 0.5rem;
+  z-index: 2;
+}
+
+.circle.active {
+  border: 3px solid var(--fill-line);
+}
+
+.progress-line {
+  position: absolute;
+  content: "";
+  background-color: var(--fill-line);
+  height: 0.25rem;
+  width: 0%;
+  bottom: 50%;
+  left: 0;
+  z-index: 1;
+  transition: all 0.5s ease-in;
+}
+
+.circle__container::before {
+  position: absolute;
+  content: "";
+  background-color: var(--empty-line);
+  height: 0.25rem;
+  width: 100%;
+  bottom: 50%;
+  left: 0;
+  z-index: 1;
+}
+
+.btn {
+  font-size: 1rem;
+  color: white;
+  width: 5rem;
+  padding: 0.5rem;
+  border-radius: 3rem;
+  border-style: none;
+  cursor: pointer;
+  background: linear-gradient(rgb(129, 129, 245), rgb(82, 65, 156));
+}
+
+.btn:disabled {
+  cursor: not-allowed;
+  background: var(--empty-line);
+}
